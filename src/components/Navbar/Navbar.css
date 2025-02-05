@@ -1,0 +1,238 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+}
+
+  .navbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+  }
+  
+  /* First row styling */
+  .first-row {
+    height: 55px;
+    border-bottom: 1px solid #000;
+  }
+  
+  /* Sections inside navbar rows */
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .logo img{
+    height: 25px;
+    width: auto;
+    padding-left: 150px;
+  }
+  
+  .right-section {
+    display: flex;
+    gap: 10px;
+    padding-right: 50px;
+  }
+
+  /* Buttons styling */
+  .menu-btn,
+  .search-btn{
+    background: #fff;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .menu-btn img,
+  .search-btn img{
+    height: 18px;
+    width: auto;
+    background: #fff;
+  }
+
+  .signin-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 0;
+    color: black;
+  }
+
+  .register-btn {
+    background: black;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0;
+    color: white;
+  }
+  
+  /* Second row styling */
+  .second-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    height: 50px;
+  }
+  
+  /* Date styling */
+  .date-container {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    text-align: left;
+  }
+  
+  .day-container {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .date-container p {
+    margin: 0;
+    padding: 0;
+    width: 100px;
+  }
+  
+  /* Category tabs */
+  .categories {
+    display: flex;
+    gap: 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0px;
+    width: 100%;
+  }
+  
+  .category-tab {
+    border: 1px solid #fff;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+    color: black;
+    height: 68px;
+    width: 134px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+  }
+  
+  .category-tab:hover {
+    background: #f0f0f0;
+    color: #000;
+  }
+
+  .active-tab {
+    box-shadow: inset 0 -3px 0 0 black;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+  }
+
+  /* Side Menu */
+.side-menu {
+  position: fixed;
+  overflow-y: auto; 
+  top: 76px;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Bring the side menu to the front */
+  height: calc(100% - 75px); /* Full height minus the first row */
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 75px;
+  height: calc(100% - 75px);
+  background: rgba(0, 0, 0, 0.5); /* Dim the background */
+  z-index: 500; /* Below the side menu */
+  transition: opacity 0.3s ease;
+}
+
+.navbar-row.second-row {
+  z-index: 200; /* Ensures that navbar tabs stay above the dimmed background */
+  position: relative;
+}
+
+  /* Side Menu Categories */
+.side-menu .menu-category-tab {
+  display: block;
+  color: #000;
+  align-items: center;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 0;
+  background: none;
+  text-align: left;
+  margin-left: 7px;
+  width: 85%;
+  line-height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Hover State for Side Menu */
+.side-menu .menu-category-tab:hover {
+  background: #f1f1f1;
+  color: #000;
+}
+
+/* Active State for Side Menu */
+.side-menu .menu-category-tab.active-tab {
+  color: black;
+  box-shadow: -7px 0 0 0 rgba(0, 0, 0, 1);
+  border-bottom: 1px solid #f0f0f0;
+  font-weight: bold;
+  border-radius: 0px;
+}
+  
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .categories {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+
+  .left-section {
+    padding-right: 0px;
+    margin-right: 0px;
+    gap: 20px;
+    justify-content: start;
+  }
+
+  .logo img{
+    height: 25px;
+    width: auto;
+    margin-left: -250px;
+    padding-left: 0px;
+  }
+
+  .right-section,
+  .second-row {
+    display: none;
+  }
+}

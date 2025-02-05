@@ -1,0 +1,152 @@
+.signin-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Left Half */
+.left-half {
+  flex: 1;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-image {
+  width: 950px;
+  object-fit: fill;
+}
+
+/* Logo in Top Left */
+.signin-container .logoo {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+
+.logoo img {
+  height: 25px;
+  cursor: pointer;
+}
+
+/* Right Half */
+.right-half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #fff;
+  padding: 20px;
+}
+
+/* Login Box */
+.login-box {
+  height: 570px;
+  width: 350px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 135px;
+  margin-bottom: 20px;
+  text-align: start;
+  color: #000;
+}
+
+/* Input Fields */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+  font-family: montserrat
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 0px;
+  font-size: 14px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: montserrat
+}
+
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background: #0056b3;
+}
+
+/* Sign Up Text */
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #000;
+  text-align: start;
+}
+
+.signup-text a {
+  color: #000;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .signin-container {
+    width: 100%;
+  }
+
+  .left-half {
+    display: none;
+  }
+
+  .right-half {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signin-container .logoo {
+    display: inline;
+    top: 100px;
+    left: 135px;
+    z-index: 1000;
+  }
+  
+  .logoo img {
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .login-box {
+    width: 90%;
+    max-width: 350px;
+  }
+}
