@@ -1,0 +1,150 @@
+/* Full Page Layout */
+.register-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Left Half (Hidden on Mobile) */
+  .left-half {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bg_image {
+    width: 600px;
+    padding: 0px 175px;
+    object-fit: fill;
+  }
+  
+  /* Right Half */
+  .right-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  /* Logo in Top Left */
+  .logooo {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+  }
+  
+  .logooo img {
+    height: 25px;
+    cursor: pointer;
+  }
+  
+  /* Registration Box */
+  .register-box {
+    height: 570px;
+    width: 350px;
+    padding: 30px;
+    background: white;
+    border: 1px solid #000;
+    text-align: center;
+  }
+  
+  .register-box h2 {
+    margin-top: 65px;
+    margin-bottom: 20px;
+    text-align: start;
+    color: #000;
+  }
+  
+  /* Input Fields */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Register Button */
+  .register-button {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .register-button:hover {
+    background: #218838;
+  }
+  
+  /* Sign In Text */
+  .signin-text {
+    margin-top: 15px;
+    color: #000;
+    text-align: start;
+    font-size: 14px;
+  }
+
+  .signin-text a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .signin-text a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .register-container {
+      width: 100%;
+    }
+  
+    .left-half {
+      display: none;
+    }
+  
+    .right-half {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .register-container .logooo {
+      display: inline;
+      top: 70px;
+      left: 135px;
+      z-index: 1000;
+    }
+    
+    .logooo img {
+      height: 25px;
+      cursor: pointer;
+    }
+  
+    .register-box {
+      width: 90%;
+      max-width: 350px;
+    }
+  }
+  

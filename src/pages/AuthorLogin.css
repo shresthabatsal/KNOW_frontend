@@ -1,0 +1,130 @@
+.author-login-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Left Half */
+  .left-half {
+    flex: 1;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .background {
+    width: 850px;
+    padding: 0px 50px;
+    object-fit: fill;
+  }
+  
+  /* Right Half */
+  .right-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  /* Logo in Top Left */
+  .author-login-container .know-logo{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+  }
+  
+  .author-login-container .know-logo img {
+    height: 25px;
+    cursor: pointer;
+  }
+  
+  /* Login Box */
+  .login-box {
+    height: 570px;
+    width: 350px;
+    padding: 30px;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Input Fields */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Login Button */
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .login-btn:hover {
+    background: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .author-login-container {
+      width: 100%;
+    }
+  
+    .left-half {
+      display: none;
+    }
+  
+    .right-half {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .author-login-container .logi {
+      display: inline;
+      top: 100px;
+      left: 135px;
+      z-index: 1000;
+    }
+    
+    .logi img {
+      height: 25px;
+      cursor: pointer;
+    }
+  
+    .login-box {
+      width: 90%;
+      max-width: 350px;
+    }
+  }
+  
