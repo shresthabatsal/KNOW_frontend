@@ -156,6 +156,7 @@
   height: calc(100% - 75px); /* Full height minus the first row */
   transition: transform 0.3s ease;
   transform: translateX(0);
+  z-index: 1000;
 }
 
 /* Overlay */

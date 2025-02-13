@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    margin-top: 15px;
+    margin-left: 80px;
+    height: 100%;
+    padding: 70px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Welcome Section */
+.welcome-section {
+    margin-bottom: 20px;
+}
+
+.welcome-section h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    color: gray;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    background-color: #fff;
+    border-radius: 0px;
+    border: 1px solid black;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.nav-btn:hover {
+    color: white;
+    background-color: #000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 80px 0px 0px 0px;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .welcome-section h2 {
+        margin-top: -35px;
+        font-size: 18px;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        width: 90%;
+        max-width: 300px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+}

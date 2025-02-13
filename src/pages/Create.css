@@ -1,0 +1,100 @@
+.create-container {
+  padding: 70px;
+  margin-top: 15px;
+  margin-left: 80px;
+  width: 800px;
+}
+
+.create-container h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+/* Cover Image Section */
+.cover-image-container {
+  margin: 15px 0;
+}
+
+.cover-label {
+  color: black;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.cover-box {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.cover-preview {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Tags Section */
+.tags-label {
+  color: black;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.buttons button {
+  flex: 1;
+}
+
+.draft-btn{
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0px;
+}
+
+.post-btn{
+  border-radius: 0px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .create-container {
+    padding: 10px 0px 0px 0px;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .create-container h2 {
+    margin-top: 30px;
+    font-size: 18px;
+  }
+
+  .cover-box {
+    height: 120px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}

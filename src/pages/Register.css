@@ -1,11 +1,10 @@
-/* Full Page Layout */
 .register-container {
     display: flex;
     width: 100vw;
     height: 100vh;
   }
   
-  /* Left Half (Hidden on Mobile) */
+  /* Left Half */
   .left-half {
     flex: 1;
     background-color: #fff;
