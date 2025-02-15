@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate(); // Hook for navigation
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const categories = [
     "home", "world", "politics", "business", "sports",
@@ -12,6 +15,7 @@ const Navbar = () => {
   ];
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleProfileMenu = () => setIsProfileMenuOpen((prev) => !prev);
 
   const today = new Date();
   const formattedDate = today.toLocaleDateString('en-GB', {
@@ -20,6 +24,11 @@ const Navbar = () => {
     year: 'numeric',
   });
   const dayOfWeek = today.toLocaleDateString('en-GB', { weekday: 'long' });
+
+  const handleSignOut = () => {
+    logout();
+    navigate("/signin"); // Redirect to sign-in page
+  };
 
   return (
     <nav className="navbar">
@@ -40,12 +49,33 @@ const Navbar = () => {
           <img src="./src/assets/know_logo.png" alt="Logo" />
         </div>
         <div className="right-section">
-          <button className="signin-btn" onClick={() => navigate("/signin")}>
-            Sign In
-          </button>
-          <button className="register-btn" onClick={() => navigate("/register")}>
-            Register
-          </button>
+          {/* Show profile button only if logged in as "user" */}
+          {user && user.role === "user" ? (
+            <div className="profile-menu">
+              <button className="profile-btn" onClick={toggleProfileMenu}>
+                <img src="./src/assets/profile.png" alt="Profile" />
+              </button>
+              {isProfileMenuOpen && (
+                <div className="profile-dropdown">
+                  <button onClick={() => navigate("/saved")}>Saved</button>
+                  <button onClick={() => navigate("/settings")}>Settings</button>
+                  <button onClick={handleSignOut}>Sign Out</button>
+                </div>
+              )}
+            </div>
+          ) : (
+            // Show Sign In and Register buttons only if no user is logged in
+            !user && (
+              <>
+                <button className="signin-btn" onClick={() => navigate("/signin")}>
+                  Sign In
+                </button>
+                <button className="register-btn" onClick={() => navigate("/register")}>
+                  Register
+                </button>
+              </>
+            )
+          )}
         </div>
       </div>
 

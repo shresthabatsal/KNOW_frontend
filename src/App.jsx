@@ -8,8 +8,8 @@ import Footer from "./components/Footer/Footer";
 import Search from "./pages/Search";
 import AuthorHome from "./pages/AuthorHome";
 import Create from "./pages/Create";
-
-const Page = ({ title }) => <h1 style={{ textAlign: "center" }}>{title}</h1>;
+import ProtectedRoute from './routes/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
 
 const AppContent = () => {
   const location = useLocation();
@@ -25,8 +25,22 @@ const AppContent = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/author" element={<Author />} />
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<AuthorHome />} />
-        <Route path="/create" element={<Create />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute role="author">
+              <AuthorHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <ProtectedRoute role="author">
+              <Create />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       {/* Hide Footer on specific routes */}
       {!hideFooterRoutes.includes(location.pathname) && <Footer />}
@@ -36,9 +50,11 @@ const AppContent = () => {
 
 function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
   );
 }
 

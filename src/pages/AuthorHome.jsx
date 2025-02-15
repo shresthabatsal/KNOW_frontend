@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Layout from "/src/components/AuthorLayout/AuthorLayout";
-import { Link } from "react-router-dom";
 import "./AuthorHome.css";
 
 const AuthorHome = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/author"); // Redirect to login if no token is found
+    }
+  }, [navigate]);
+
   return (
     <Layout>
       <div className="container">

@@ -29,9 +29,11 @@
   }
   
   .logo img{
+    position: absolute;
+    left: 705px;
+    top: 25px;
     height: 25px;
     width: auto;
-    padding-left: 150px;
   }
   
   .right-section {
@@ -210,6 +212,53 @@
   font-weight: bold;
   border-radius: 0px;
 }
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.profile-btn img{
+  height: 24px;
+  width: auto;
+  background: #fff;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 22px;
+  width: 150px;
+  background: white;
+  border: 1px solid #000;
+  border-radius: 4px;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.profile-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 0px;
+  text-align: left;
+  background: none;
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+  background: #f0f0f0;
+}
   
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -226,14 +275,19 @@
   }
 
   .logo img{
+    position: absolute;
+    left: 130px;
     height: 25px;
     width: auto;
-    margin-left: -250px;
-    padding-left: 0px;
   }
 
-  .right-section,
+  .signin-btn,
+  .register-btn,
   .second-row {
     display: none;
+  }
+
+  .profile-menu {
+    position: relative;
   }
 }

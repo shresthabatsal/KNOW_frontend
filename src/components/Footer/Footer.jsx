@@ -17,7 +17,7 @@ const Footer = () => {
           <a href="/help">Help</a>
           <a href="/signin">Sign In</a>
           <a href="/register">Register</a>
-          <a href="/home">Author</a>
+          <a href="/author">Author</a>
           <a href="/admin">Admin</a>
         </div>
 
