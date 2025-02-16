@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
           <Link to="/create" className={location.pathname === "/create" ? "active" : ""}>Create</Link>
           <Link to="/articles" className={location.pathname === "/articles" ? "active" : ""}>Your Articles</Link>
           <Link to="/analytics" className={location.pathname === "/analytics" ? "active" : ""}>Analytics</Link>
-          <Link to="/settings" className={location.pathname === "/settings" ? "active" : ""}>Settings</Link>
+          <Link to="/author-settings" className={location.pathname === "/author-settings" ? "active" : ""}>Settings</Link>
         </nav>
       </div>
 

@@ -1,0 +1,151 @@
+.author-settings-container {
+  padding: 70px;
+  margin-top: 15px;
+  margin-left: 80px;
+  padding-left: 230px;
+  width: 800px;
+  padding-bottom: 100px;
+}
+
+.author-settings-container h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+
+.author-settings-container form div {
+  width: 500px;
+  margin-bottom: 15px;
+}
+
+.author-settings-container label {
+  color: black;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.author-settings-container input {
+  width: 100%;
+  height: 25px;
+  padding: 8px;
+  color: black;
+  font-family: Montserrat;
+  font-size: 16px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.update-button {
+  padding: 10px 20px;
+  background-color: #000;
+  border-radius: 0px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.author-settings-container button:hover {
+  background-color: #0056b3;
+}
+
+.btns {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 0px;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100px;
+}
+
+.logout-button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .author-settings-container {
+      padding: 30px;
+      padding-right: 0px;
+      margin-left: 20px;
+      padding-left: 20px;
+      width: 50%;
+  }
+
+  .author-settings-container form div {
+      width: 100%;
+  }
+
+  .update-button {
+      padding: 8px 16px;
+      font-size: 14px;
+  }
+
+  .logout-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      width: 90px;
+  }
+
+  .btns {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .author-settings-container {
+    margin-left: 0px;
+    padding-left: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+  }
+
+  .author-settings-container form div {
+      width: 80%;
+  }
+
+  .author-settings-container h2 {
+    font-size: 20px;
+  }
+
+  .author-settings-container label {
+    font-size: 13px;
+  }
+
+  .author-settings-container input {
+    font-size: 14px;
+    height: 30px;
+  }
+
+  .update-button {
+    width: 108%;
+    margin-left: 20px;
+    padding: 12px;
+  }
+
+  .logout-button {
+    width: 108%;
+    margin-left: 20px;
+    padding: 12px;
+  }
+}

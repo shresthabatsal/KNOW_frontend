@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
+import { jwtDecode } from 'jwt-decode';
 import './Signin.css';
 
 const SignIn = () => {
@@ -22,7 +23,9 @@ const SignIn = () => {
       });
 
       if (response.data.token) {
-        login(response.data.token, 'user'); // Log in as user
+        const decodedToken = jwtDecode(response.data.token); // Decode the token
+        const { userId, role } = decodedToken; // Extract userId and role
+        login(response.data.token, role, userId); // Pass token, role, and userId to login
         navigate('/'); // Redirect to user home
       }
     } catch (err) {
@@ -40,7 +43,6 @@ const SignIn = () => {
       {/* Left Half with Image */}
       <div className="left-half">
         <img src="./src/assets/signin.jpg" alt="Background" className="bg-image" />
-        {/* Logo in Top Left */}
       </div>
 
       {/* Right Half with Sign-In Form */}

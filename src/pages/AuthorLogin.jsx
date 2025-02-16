@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
+import { jwtDecode } from 'jwt-decode';
 import './AuthorLogin.css';
 
 const AuthorLogin = () => {
@@ -22,7 +23,9 @@ const AuthorLogin = () => {
       });
 
       if (response.data.token) {
-        login(response.data.token, 'author'); // Log in as author
+        const decodedToken = jwtDecode(response.data.token); // Decode the token
+        const { authorId, role } = decodedToken; // Extract authorId and role
+        login(response.data.token, role, authorId); // Pass token, role, and authorId to login
         navigate('/home'); // Redirect to author home
       }
     } catch (err) {
@@ -33,11 +36,11 @@ const AuthorLogin = () => {
 
   return (
     <div className="author-login-container">
-        {/* Logo in Top Left */}
+      {/* Logo in Top Left */}
       <a href="/" className="know-logo">
         <img src="./src/assets/know_logo.png" alt="Logo" />
       </a>
-        
+
       {/* Left Half with Image */}
       <div className="left-half">
         <img src="./src/assets/authorlogin.jpg" alt="Background" className="background" />
@@ -45,7 +48,6 @@ const AuthorLogin = () => {
 
       {/* Right Half with Login Form */}
       <div className="right-half">
-
         {/* Login Box */}
         <div className="login-box">
           <h2>Author</h2>

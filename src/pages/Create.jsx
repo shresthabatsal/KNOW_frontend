@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Layout from "/src/components/AuthorLayout/AuthorLayout";
 import { TextField, Button, Chip, MenuItem, Select, InputLabel, FormControl } from "@mui/material";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css"; // Import Quill's CSS
 import "./Create.css";
+import { useAuth } from '../context/AuthContext';
+import api from '../services/api';
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -11,6 +15,7 @@ const Create = () => {
   const [content, setContent] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [coverPreview, setCoverPreview] = useState(null);
+  const { user } = useAuth();
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
@@ -25,6 +30,37 @@ const Create = () => {
     if (file) {
       setCoverImage(file);
       setCoverPreview(URL.createObjectURL(file)); // Generate preview URL
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('summary', summary);
+    formData.append('content', content);
+    formData.append('category', category);
+    formData.append('tags', tags);
+    if (coverImage) {
+      formData.append('cover_image', coverImage);
+    }
+
+    try {
+      const response = await api.post('/articles', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${user.token}`,
+        },
+      });
+
+      if (response.data) {
+        alert('Article created successfully!');
+        // Redirect or clear form
+      }
+    } catch (error) {
+      console.error('Error creating article:', error);
+      alert('Failed to create article');
     }
   };
 
@@ -78,17 +114,17 @@ const Create = () => {
           </Select>
         </FormControl>
 
-        {/* Content Input */}
-        <TextField
-          label="Content"
-          variant="outlined"
-          fullWidth
-          multiline
-          rows={6}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          margin="normal"
-        />
+        {/* Content Input - Replaced with ReactQuill */}
+        <div className="content-section">
+          <label className="content-label">Content</label>
+          <ReactQuill
+            theme="snow" // Use the "snow" theme for the editor
+            value={content}
+            onChange={setContent} // Update the content state
+            placeholder="Write your content here..."
+            style={{ height: "300px", marginBottom: "40px" }}
+          />
+        </div>
 
         {/* Tags Selection */}
         <div className="tags-section">
@@ -115,10 +151,10 @@ const Create = () => {
 
         {/* Action Buttons */}
         <div className="buttons">
-          <button className="draft-btn">
+          <button className="draft-btn" onClick={handleSubmit}>
             Save as Draft
           </button>
-          <button className="post-btn">
+          <button className="post-btn" onClick={handleSubmit}>
             Post
           </button>
         </div>
