@@ -33,15 +33,14 @@ const Create = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async (status) => {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('summary', summary);
     formData.append('content', content);
     formData.append('category', category);
     formData.append('tags', tags);
+    formData.append('status', status);
     if (coverImage) {
       formData.append('cover_image', coverImage);
     }
@@ -55,12 +54,12 @@ const Create = () => {
       });
 
       if (response.data) {
-        alert('Article created successfully!');
+        alert(`Article ${status === 'Draft' ? 'saved as draft' : 'published'} successfully!`);
         // Redirect or clear form
       }
     } catch (error) {
       console.error('Error creating article:', error);
-      alert('Failed to create article');
+      alert(`Failed to ${status === 'Draft' ? 'save as draft' : 'publish'} article`);
     }
   };
 
@@ -151,10 +150,10 @@ const Create = () => {
 
         {/* Action Buttons */}
         <div className="buttons">
-          <button className="draft-btn" onClick={handleSubmit}>
+          <button className="draft-btn" onClick={() => handleSubmit("Draft")}>
             Save as Draft
           </button>
-          <button className="post-btn" onClick={handleSubmit}>
+          <button className="post-btn" onClick={() => handleSubmit("Published")}>
             Post
           </button>
         </div>

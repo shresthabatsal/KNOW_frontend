@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./AuthorLayout.css";
+import logo from '/assets/know_logo.png';
 import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {
@@ -14,7 +15,7 @@ const Layout = ({ children }) => {
         <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </div>
-        <img src="./src/assets/know_logo.png" alt="Logo" className="logo-img" />
+        <img src={logo} alt="Logo" className="logo-img" />
       </div>
 
       {/* Side Menu */}

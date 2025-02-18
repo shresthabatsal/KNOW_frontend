@@ -25,7 +25,7 @@ const AuthorHome = () => {
           <Link to="/create" className="nav-btn">✍️ Create Article</Link>
           <Link to="/articles" className="nav-btn">📄 Your Articles</Link>
           <Link to="/analytics" className="nav-btn">📊 View Analytics</Link>
-          <Link to="/settings" className="nav-btn">⚙️ Settings</Link>
+          <Link to="/author-settings" className="nav-btn">⚙️ Settings</Link>
         </div>
       </div>
     </Layout>

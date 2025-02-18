@@ -10,18 +10,20 @@ import Search from "./pages/Search";
 import AuthorHome from "./pages/AuthorHome";
 import Create from "./pages/Create";
 import Articles from "./pages/Articles";
+import EditArticle from "./pages/EditArticle";
 import AuthorSettings from "./pages/AuthorSettings";
 import ProtectedRoute from './routes/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
 const AppContent = () => {
   const location = useLocation();
-  const hideNavbarRoutes = ["/signin", "/register", "/author", "/home", "/create", "/articles", "/author-settings"]; // Routes where Navbar should be hidden
-  const hideFooterRoutes = ["/home", "/create", "/articles", "/author-settings"];
+  const isEditArticlePage = location.pathname.startsWith("/edit-article/");
+  const hideNavbarRoutes = ["/signin", "/register", "/author", "/home", "/create", "/articles", "/edit-article", "/author-settings"]; // Routes where Navbar should be hidden
+  const hideFooterRoutes = ["/home", "/create", "/articles", "/edit-article", "/author-settings"];
 
   return (
     <>
-      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+      {!hideNavbarRoutes.includes(location.pathname) && !isEditArticlePage && <Navbar />}
       <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/search" element={<Search />} />
@@ -33,6 +35,14 @@ const AppContent = () => {
           element={
             <ProtectedRoute role="user">
               <Settings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/edit-article/:id"
+          element={
+            <ProtectedRoute role="author">
+              <EditArticle />
             </ProtectedRoute>
           }
         />
@@ -70,7 +80,7 @@ const AppContent = () => {
         />
         </Routes>
       {/* Hide Footer on specific routes */}
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+      {!hideFooterRoutes.includes(location.pathname) && !isEditArticlePage && <Footer />}
     </>
   );
 };
