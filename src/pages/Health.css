@@ -1,0 +1,15 @@
+.health-container{
+    display: flex;
+    width: 100vw;
+    padding-top: 105px;
+}
+  
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    width: 100%;
+    padding: 100px;
+    padding-top: 70px;
+    padding-left: 90px;
+  }

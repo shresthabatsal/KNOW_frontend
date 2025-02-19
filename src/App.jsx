@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Navbar from "./components/Navbar/Navbar";
 import SignIn from "./pages/Signin";
 import Register from "./pages/Register";
+import NewsPage from "./pages/NewsPage";
 import Home from "./pages/Home";
+import Health from "./pages/Health";
 import Settings from "./pages/Settings";
 import Author from "./pages/AuthorLogin";
 import Footer from "./components/Footer/Footer";
@@ -29,7 +31,9 @@ const AppContent = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/register" element={<Register />} />
         <Route path="/author" element={<Author />} />
+        <Route path="/news/:id" element={<NewsPage />} />
         <Route path="/" element={<Home />} />
+        <Route path="/health" element={<Health />} />
         <Route
           path="/settings"
           element={
