@@ -1,0 +1,127 @@
+.horizontal-article-item {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    padding: 15px;
+    padding-left: 0px;
+    border-radius: 0px;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    cursor: pointer;
+    padding-bottom: 70px;
+    border-bottom: 1px solid #D3D3D3;
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .horizontal-cover-image-container {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .horizontal-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+  
+  .horizontal-article-item:hover .horizontal-cover-image {
+    filter: brightness(0.8);
+  }
+  
+  .horizontal-content {
+    width: 600px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .horizontal-meta-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .horizontal-category-box {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 0px;
+    color: black;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    margin-right: 10px;
+  }
+  
+  .horizontal-published-date {
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  .horizontal-title {
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    white-space: normal;
+    transition: text-decoration 0.3s ease;
+  }
+  
+  .horizontal-article-item:hover .horizontal-title {
+    text-decoration: underline;
+  }
+  
+  .horizontal-summary {
+    width: 100%;
+    text-align: left;
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+
+  @media (max-width: 768px) {
+    .horizontal-article-item {
+      width: 300px;
+      flex-direction: column;
+      padding: 0px;
+      padding-bottom: 40px;
+    }
+
+    .horizontal-cover-image-container {
+      width: 100%; 
+      height: auto; 
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+
+    .horizontal-content {
+      width: 100%;
+    }
+
+    .horizontal-title {
+      font-size: 1em;
+    }
+
+    .horizontal-summary {
+      font-size: 0.8em;
+    }
+  }
