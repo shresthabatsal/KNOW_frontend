@@ -1,59 +1,100 @@
 .search-container {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    background-color: white;
-    padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  padding-top: 220px;
 }
 
-  .search-bar{
-    display: flex;
-    background-color: white;
-    margin-top: 50px;
+.search-bar {
+  width: 100vw;
+  display: flex;
+  position: fixed;
+  top: 147px;
+  padding: 10px;
+  justify-content: center;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  padding: 10px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  width: 1000px;
+  height: 50px;
+  font-size: 16px;
+}
+
+.search-button {
+  background-color: #000;
+  border: 1px solid black;
+  border-radius: 0;
+  padding: 10px 15px;
+  width: 72px;
+  height: 72px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button svg {
+  font-size: 18px;
+}
+
+.search-results {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+.loading,
+.error,
+.no-results {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.no-results {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    padding-top: 150px;
   }
-  
-  .search-input {
+
+  .search-bar {
+    width: 100%;
+    margin-top: -71px;
     padding: 10px;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    width: 1000px;
-    height: 50px;
-    font-size: 16px;
   }
-  
+
+  .search-input {
+    width: 70%;
+    height: 40px;
+    font-size: 14px;
+  }
+
   .search-button {
-    background-color: #000;
-    border: 1px solid black;
-    border-radius: 0;
-    padding: 10px 15px;
-    width: 72px;
-    height: 72px;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search-button svg {
-    font-size: 18px;
+    width: 50px;
+    height: 62px;
   }
 
-  @media (max-width: 768px) {
-
-    .search-bar{
-        width: 80%;
-        margin-top: -40px;
-    }
-
-    .search-input{
-        height: 20px;
-    }
-
-    .search-button{
-        height: 42px;
-    }
-    
+  .search-results {
+    margin-top: 10px;
+    width: 90%;
   }
+}
