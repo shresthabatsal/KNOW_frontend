@@ -9,6 +9,7 @@ import Settings from "./pages/Settings";
 import Author from "./pages/AuthorLogin";
 import Footer from "./components/Footer/Footer";
 import Search from "./pages/Search";
+import Saved from "./pages/Saved";
 import AuthorHome from "./pages/AuthorHome";
 import Create from "./pages/Create";
 import Articles from "./pages/Articles";
@@ -34,6 +35,14 @@ const AppContent = () => {
         <Route path="/news/:id" element={<NewsPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/health" element={<Health />} />
+        <Route
+          path="/saved"
+          element={
+            <ProtectedRoute role="user">
+              <Saved />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/settings"
           element={

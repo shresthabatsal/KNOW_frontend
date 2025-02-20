@@ -8,6 +8,8 @@
     flex-direction: column;
     width: 400px;
     height: 500px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #D3D3D3;
   }
   
   .cover-image-item {
@@ -71,3 +73,28 @@
     overflow-wrap: break-word;
     white-space: normal;
   }
+
+@media (max-width: 768px) {
+  .article-item-news {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .cover-image-item {
+    height: 150px;
+  }
+
+  .title-item {
+    font-size: 1rem;
+  }
+
+  .summary {
+    font-size: 0.9rem;
+  }
+
+  .category-box-item,
+  .published-date-item {
+    font-size: 0.8rem;
+  }
+}
