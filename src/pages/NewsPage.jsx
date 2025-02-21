@@ -9,6 +9,7 @@ const NewsPage = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [isSaved, setIsSaved] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false); // Track if speech is active
   const { user } = useAuth();
 
   useEffect(() => {
@@ -29,6 +30,15 @@ const NewsPage = () => {
     fetchArticle();
   }, [id, user]);
 
+  // Cleanup function to stop speech when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel(); // Stop speech when the component unmounts
+      }
+    };
+  }, []);
+
   const handleSave = async () => {
     if (!user) {
       alert('Please login to save articles');
@@ -45,6 +55,42 @@ const NewsPage = () => {
       }
     } catch (error) {
       console.error('Failed to save/unsave article:', error);
+    }
+  };
+
+  const handleListen = () => {
+    if (!article) return;
+
+    // Extract text from the title and content
+    const contentElement = document.createElement('div');
+    contentElement.innerHTML = DOMPurify.sanitize(article.content);
+    const contentText = contentElement.textContent || contentElement.innerText;
+    const text = `${article.title}. ${contentText}`; // Combine title and content
+
+    // Check if the browser supports the Web Speech API
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US'; // Set the language
+      utterance.rate = 1; // Speed of speech (1 is normal)
+      utterance.pitch = 1; // Pitch of speech (1 is normal)
+
+      // Event listener to detect when speech ends
+      utterance.onend = () => {
+        setIsSpeaking(false); // Reset the button to "Listen"
+      };
+
+      // Start speech
+      window.speechSynthesis.speak(utterance);
+      setIsSpeaking(true); // Set the button to "Stop"
+    } else {
+      alert('Sorry, your browser does not support text-to-speech.');
+    }
+  };
+
+  const handleStop = () => {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel(); // Stop speech
+      setIsSpeaking(false); // Reset the button to "Listen"
     }
   };
 
@@ -75,7 +121,15 @@ const NewsPage = () => {
             <button className="save-button" onClick={handleSave}>
               {isSaved ? 'Saved' : 'Save'}
             </button>
-            <button className="listen-button">Listen</button>
+            {isSpeaking ? (
+              <button className="stop-button" onClick={handleStop}>
+                Stop
+              </button>
+            ) : (
+              <button className="listen-button" onClick={handleListen}>
+                Listen
+              </button>
+            )}
           </div>
         </div>
         <img

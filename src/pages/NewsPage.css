@@ -80,6 +80,18 @@
   .listen-button:hover {
     background-color: #ddd;
   }
+
+  .stop-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    transition: background-color 0.3s;
+  }
   
   .cover-image-display {
     display: block;
