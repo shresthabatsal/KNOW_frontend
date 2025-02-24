@@ -4,8 +4,15 @@ import SignIn from "./pages/Signin";
 import Register from "./pages/Register";
 import NewsPage from "./pages/NewsPage";
 import Home from "./pages/Home";
+import World from "./pages/World";
+import Politics from "./pages/Politics";
+import Business from "./pages/Business";
 import Health from "./pages/Health";
 import Sports from "./pages/Sports";
+import Environment from "./pages/Environment";
+import Travel from "./pages/Travel";
+import Entertainment from "./pages/Entertainment";
+import Science from "./pages/Science";
 import Settings from "./pages/Settings";
 import Author from "./pages/AuthorLogin";
 import Footer from "./components/Footer/Footer";
@@ -35,8 +42,15 @@ const AppContent = () => {
         <Route path="/author" element={<Author />} />
         <Route path="/news/:id" element={<NewsPage />} />
         <Route path="/" element={<Home />} />
+        <Route path="/world" element={<World />} />
+        <Route path="/politics" element={<Politics />} />
+        <Route path="/business" element={<Business />} />
         <Route path="/health" element={<Health />} />
         <Route path="/sports" element={<Sports />} />
+        <Route path="/environment" element={<Environment />} />
+        <Route path="/travel" element={<Travel />} />
+        <Route path="/entertainment" element={<Entertainment />} />
+        <Route path="/science" element={<Science />} />
         <Route
           path="/saved"
           element={

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
-import HorizontalArticleItem from '../components/HorizontalArticleItem';
+import HorizontalArticleItem from '../components/HorizontalArticleItem/HorizontalArticleItem';
 import './Saved.css';
 
 const Saved = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import api from "../services/api";
-import ArticleItem from "../components/ArticleItem";
+import ArticleItem from "../components/ArticleItem/ArticleItem";
 import { useAuth } from "../context/AuthContext";
 
 const Home = () => {

@@ -1,0 +1,10 @@
+.world-container{
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 125px;
+}
+
+.articles-grid p{
+    color: black;
+}

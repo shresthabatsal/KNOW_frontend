@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Health.css";
 import api from "../services/api";
-import ArticleItem from "../components/ArticleItem";
+import ArticleItem from "../components/ArticleItem/ArticleItem";
 
 const Health = () => {
   const [articles, setArticles] = useState([]);

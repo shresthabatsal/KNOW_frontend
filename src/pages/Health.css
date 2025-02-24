@@ -15,7 +15,10 @@
   }
   
   @media (max-width: 768px) {
-    .health-container {
+    .health-container, .home-container, .world-container, 
+    .politics-container, .business-container, .sports-container, 
+    .environment-container, .travel-container, .entertainment-container, 
+    .science-container {
       padding-top: 80px;
     }
   

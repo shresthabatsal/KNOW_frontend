@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./Sports.css";
+import "./Environment.css";
 import api from "../services/api";
 import ArticleItem from "../components/ArticleItem/ArticleItem";
 
-const Sports = () => {
+const Environment = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await api.get('/articles/category/Sports');
-        // Filter articles to include only those with status "Published"
+        const response = await api.get('/articles/category/Environment');
         const publishedArticles = response.data.filter(
           (article) => article.status === 'Published'
         );
@@ -24,14 +23,18 @@ const Sports = () => {
   }, []);
 
   return (
-    <div className="sports-container">
+    <div className="environment-container">
       <div className="articles-grid">
-        {articles.map((article) => (
-          <ArticleItem key={article.id} article={article} />
-        ))}
+        {articles.length > 0 ? (
+          articles.map((article) => (
+            <ArticleItem key={article.id} article={article} />
+          ))
+        ) : (
+          <p>No articles found</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default Sports;
+export default Environment;

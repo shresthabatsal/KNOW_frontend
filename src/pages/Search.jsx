@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import HorizontalArticleItem from "../components/HorizontalArticleItem";
+import HorizontalArticleItem from "../components/HorizontalArticleItem/HorizontalArticleItem";
 import api from "../services/api";
 import "./Search.css";
 
