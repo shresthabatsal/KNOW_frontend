@@ -109,7 +109,7 @@ const Create = () => {
           <Select value={category} onChange={handleCategoryChange} label="Category">
             <MenuItem value="Technology">Technology</MenuItem>
             <MenuItem value="Health">Health</MenuItem>
-            <MenuItem value="Education">Education</MenuItem>
+            <MenuItem value="Sports">Sports</MenuItem>
           </Select>
         </FormControl>
 

@@ -1,27 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./Home.css";
+import "./Sports.css";
 import api from "../services/api";
 import ArticleItem from "../components/ArticleItem";
-import { useAuth } from "../context/AuthContext";
 
-const Home = () => {
+const Sports = () => {
   const [articles, setArticles] = useState([]);
-  const { user } = useAuth();
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        let response;
-        if (user) {
-          console.log('Fetching personalized articles for user:', user.id); // Debugging
-          response = await api.get('/articles/personalized');
-        } else {
-          console.log('Fetching all published articles for non-logged-in user'); // Debugging
-          response = await api.get('/articles');
-        }
-
-        console.log('Response:', response.data); // Debugging
-
+        const response = await api.get('/articles/category/Sports');
         // Filter articles to include only those with status "Published"
         const publishedArticles = response.data.filter(
           (article) => article.status === 'Published'
@@ -33,10 +21,10 @@ const Home = () => {
     };
 
     fetchArticles();
-  }, [user]);
+  }, []);
 
   return (
-    <div className="home-container">
+    <div className="sports-container">
       <div className="articles-grid">
         {articles.map((article) => (
           <ArticleItem key={article.id} article={article} />
@@ -46,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Sports;

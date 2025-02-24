@@ -21,9 +21,20 @@ const NewsPage = () => {
           const savedResponse = await api.get('/saved/saved');
           const savedArticles = savedResponse.data.savedArticles;
           setIsSaved(savedArticles.some(saved => saved.articleId === response.data.id));
+
+          // Track article view for logged-in users
+          await trackArticleView();
         }
       } catch (error) {
         console.error('Failed to fetch article:', error);
+      }
+    };
+
+    const trackArticleView = async () => {
+      try {
+        await api.post(`/articles/${id}/view`);
+      } catch (error) {
+        console.error('Failed to track article view:', error);
       }
     };
 

@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import NewsPage from "./pages/NewsPage";
 import Home from "./pages/Home";
 import Health from "./pages/Health";
+import Sports from "./pages/Sports";
 import Settings from "./pages/Settings";
 import Author from "./pages/AuthorLogin";
 import Footer from "./components/Footer/Footer";
@@ -35,6 +36,7 @@ const AppContent = () => {
         <Route path="/news/:id" element={<NewsPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/health" element={<Health />} />
+        <Route path="/sports" element={<Sports />} />
         <Route
           path="/saved"
           element={
