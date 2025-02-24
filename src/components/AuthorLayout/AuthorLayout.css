@@ -24,9 +24,11 @@
   
   /* Logo */
   .logo-img {
+    position: absolute;
+    left: 705px;
+    top: 25px;
     height: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: auto;
   }
   
   /* Side Menu */
@@ -92,6 +94,12 @@
     .top-bar{
       display: flex;
     }
+    .logo-img {
+      position: absolute;
+      left: 130px;
+      height: 25px;
+      width: auto;
+    }  
 
     .menu-icon {
       display: block;

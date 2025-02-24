@@ -21,16 +21,18 @@ import Saved from "./pages/Saved";
 import AuthorHome from "./pages/AuthorHome";
 import Create from "./pages/Create";
 import Articles from "./pages/Articles";
+import Analytics from "./pages/Analytics";
 import EditArticle from "./pages/EditArticle";
 import AuthorSettings from "./pages/AuthorSettings";
+import Terms from "./pages/Terms";
 import ProtectedRoute from './routes/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
 const AppContent = () => {
   const location = useLocation();
   const isEditArticlePage = location.pathname.startsWith("/edit-article/");
-  const hideNavbarRoutes = ["/signin", "/register", "/author", "/home", "/create", "/articles", "/edit-article", "/author-settings"]; // Routes where Navbar should be hidden
-  const hideFooterRoutes = ["/home", "/create", "/articles", "/edit-article", "/author-settings"];
+  const hideNavbarRoutes = ["/signin", "/register", "/author", "/home", "/create", "/articles", "/edit-article", "/analytics", "/author-settings"]; // Routes where Navbar should be hidden
+  const hideFooterRoutes = ["/home", "/create", "/articles", "/edit-article", "/analytics", "/author-settings"];
 
   return (
     <>
@@ -51,6 +53,7 @@ const AppContent = () => {
         <Route path="/travel" element={<Travel />} />
         <Route path="/entertainment" element={<Entertainment />} />
         <Route path="/science" element={<Science />} />
+        <Route path="/terms" element={<Terms />} />
         <Route
           path="/saved"
           element={
@@ -96,6 +99,14 @@ const AppContent = () => {
           element={
             <ProtectedRoute role="author">
               <Articles />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/analytics"
+          element={
+            <ProtectedRoute role="author">
+              <Analytics />
             </ProtectedRoute>
           }
         />
