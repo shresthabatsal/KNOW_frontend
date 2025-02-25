@@ -55,11 +55,18 @@ const Create = () => {
 
       if (response.data) {
         alert(`Article ${status === 'Draft' ? 'saved as draft' : 'published'} successfully!`);
-        // Redirect or clear form
+        // Clear the form
+        setTitle("");
+        setSummary("");
+        setContent("");
+        setCategory("");
+        setTags([]);
+        setCoverImage(null);
+        setCoverPreview(null);
       }
     } catch (error) {
       console.error('Error creating article:', error);
-      alert(`Failed to ${status === 'Draft' ? 'save as draft' : 'publish'} article`);
+      alert(error.response.data.error);
     }
   };
 

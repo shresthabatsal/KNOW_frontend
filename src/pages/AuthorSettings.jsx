@@ -91,10 +91,10 @@ const AuthorSettings = () => {
   return (
     <Layout>
       <div className="author-settings-container">
-        {error && <p className="error">{error}</p>}
-        {success && <p className="success">{success}</p>}
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
           <div>
+          {error && <p className="error">{error}</p>}
+          {success && <p className="success">{success}</p>}
           <h2>Settings</h2>
             <label>Name:</label>
             <input

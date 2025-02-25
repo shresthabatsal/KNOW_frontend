@@ -37,13 +37,8 @@
   }
 
   .settings-container button {
-    background-color: #000;
     border-radius: 0px;
     margin-top: 10px;
-  }
-  
-  .settings-container button:hover {
-    background-color: #0056b3;
   }
   
   .error {
@@ -58,10 +53,24 @@
     margin-bottom: 15px;
   }
 
+    /* Delete Account Button */
+  .delete-account-button {
+    border: none;
+    color: red;
+    background: white;
+    cursor: pointer;  
+    margin-top: 20px;
+  }
+
+  .delete-account-button:hover {
+    text-decoration: underline;
+    background: white;
+  }
+
   @media (max-width: 768px) {
     .settings-container {
       flex-direction: column;
-      width: 100%;
+      width: 100vm;
       padding-top: 120px;
     }
   
@@ -87,5 +96,9 @@
       width: 85%;
       margin-left: 27px;
       padding: 12px;
+    }
+
+    .delete-account-button {
+      margin-left: 27px;
     }
   }

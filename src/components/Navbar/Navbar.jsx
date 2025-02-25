@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import logo from '/know_logo.png';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -46,7 +47,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="logo">
-          <img src="./src/assets/know_logo.png" alt="Logo" />
+          <img src={logo} alt="Logo" />
         </div>
         <div className="right-section">
           {/* Show profile button only if logged in as "user" */}

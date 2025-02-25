@@ -69,7 +69,7 @@ const EditArticle = () => {
       }
     } catch (error) {
       console.error('Error updating article:', error);
-      alert('Failed to update article');
+      alert(error.response.data.error);
     }
   };
 

@@ -97,7 +97,7 @@
   
   @media (max-width: 768px) {
     .author-login-container {
-      width: 100%;
+      width: 100vw;
     }
   
     .left-half {
@@ -110,7 +110,7 @@
       align-items: center;
     }
   
-    .author-login-container .logi {
+    .author-login-container .know-logo {
       display: inline;
       top: 100px;
       left: 135px;

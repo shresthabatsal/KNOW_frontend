@@ -120,7 +120,7 @@ h2 {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .signin-container {
-    width: 100%;
+    width: 100vw;
   }
 
   .left-half {

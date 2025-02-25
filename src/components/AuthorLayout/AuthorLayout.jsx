@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./AuthorLayout.css";
-import logo from '/assets/know_logo.png';
+import logo from '/know_logo.png';
 import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {

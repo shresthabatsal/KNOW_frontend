@@ -116,7 +116,7 @@
   
   @media (max-width: 768px) {
     .register-container {
-      width: 100%;
+      width: 100vw;
     }
   
     .left-half {

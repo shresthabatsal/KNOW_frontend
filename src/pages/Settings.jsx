@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Settings.css';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
   const { user, logout } = useAuth();
@@ -16,6 +17,7 @@ const Settings = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -87,12 +89,28 @@ const Settings = () => {
     }
   };
 
+  const handleDeleteAccount = async () => {
+    // Show confirmation dialog
+    const confirmDelete = window.confirm('Are you sure? Once deleted, this action cannot be undone.');
+
+    if (confirmDelete) {
+      try {
+        // Call the delete user API
+        await api.delete(`/users/${user.id}`);
+        logout(); // Log out the user
+        navigate('/'); // Redirect to home page
+      } catch (error) {
+        console.error('Failed to delete account', error);
+        setError('Failed to delete account');
+      }
+    }
+  };
+
   return (
     <div className="settings-container">
-
+      <form onSubmit={handleSubmit}>
       {error && <p className="error">{error}</p>}
       {success && <p className="success">{success}</p>}
-      <form onSubmit={handleSubmit}>
         <div>
           <h2>Settings</h2>
           <label>Name:</label>
@@ -143,7 +161,10 @@ const Settings = () => {
           />
         </div>
         <button type="submit">Update</button>
-      </form>
+        <button className="delete-account-button" onClick={handleDeleteAccount}>
+        Delete Account
+      </button>
+      </form>      
     </div>
   );
 };

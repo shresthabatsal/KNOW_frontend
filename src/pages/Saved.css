@@ -1,5 +1,6 @@
 .saved-container {
     width: 100vw;
+    min-height: 100vh;
     margin: 0 auto;
     padding: 20px;
     padding-top: 70px;
@@ -21,9 +22,13 @@
     gap: 20px;
   }
 
+  .saved-articles-list p{
+    color: black;
+  }
+
   @media (max-width: 768px) {
     .saved-container {
-      width: 100%;
+      width: 100vw;
       padding: 0px;
       padding-top: 10px;
     }
