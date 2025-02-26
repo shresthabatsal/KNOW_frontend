@@ -125,9 +125,15 @@ const EditArticle = () => {
           <FormControl fullWidth margin="normal">
             <InputLabel>Category</InputLabel>
             <Select value={category} onChange={(e) => setCategory(e.target.value)} label="Category">
-              <MenuItem value="Technology">Technology</MenuItem>
+              <MenuItem value="World">World</MenuItem>
+              <MenuItem value="Politics">Politics</MenuItem>
+              <MenuItem value="Business">Business</MenuItem>
+              <MenuItem value="Sports">Sports</MenuItem>
               <MenuItem value="Health">Health</MenuItem>
-              <MenuItem value="Education">Education</MenuItem>
+              <MenuItem value="Environment">Environment</MenuItem>
+              <MenuItem value="Travel">Travel</MenuItem>
+              <MenuItem value="Entertainment">Entertainment</MenuItem>
+              <MenuItem value="Science">Science</MenuItem>
             </Select>
           </FormControl>
 
@@ -160,9 +166,68 @@ const EditArticle = () => {
               fullWidth
               margin="normal"
             >
-              <MenuItem value="React">React</MenuItem>
-              <MenuItem value="JavaScript">JavaScript</MenuItem>
-              <MenuItem value="Frontend">Frontend</MenuItem>
+              {/* World Tags */}
+              <MenuItem value="Global News">Global News</MenuItem>
+              <MenuItem value="International Relations">International Relations</MenuItem>
+              <MenuItem value="Conflict Zones">Conflict Zones</MenuItem>
+              <MenuItem value="Diplomacy">Diplomacy</MenuItem>
+              <MenuItem value="Humanitarian Issues">Humanitarian Issues</MenuItem>
+
+              {/* Politics Tags */}
+              <MenuItem value="Elections">Elections</MenuItem>
+              <MenuItem value="Government Policies">Government Policies</MenuItem>
+              <MenuItem value="Political Parties">Political Parties</MenuItem>
+              <MenuItem value="Public Opinion">Public Opinion</MenuItem>
+              <MenuItem value="Legislation">Legislation</MenuItem>
+
+              {/* Business Tags */}
+              <MenuItem value="Economy">Economy</MenuItem>
+              <MenuItem value="Markets">Markets</MenuItem>
+              <MenuItem value="Startups">Startups</MenuItem>
+              <MenuItem value="Corporate News">Corporate News</MenuItem>
+              <MenuItem value="Trade">Trade</MenuItem>
+
+              {/* Sports Tags */}
+              <MenuItem value="Football">Football</MenuItem>
+              <MenuItem value="Basketball">Basketball</MenuItem>
+              <MenuItem value="Cricket">Cricket</MenuItem>
+              <MenuItem value="Olympics">Olympics</MenuItem>
+              <MenuItem value="Athletics">Athletics</MenuItem>
+
+              {/* Health Tags */}
+              <MenuItem value="Fitness">Fitness</MenuItem>
+              <MenuItem value="Mental Health">Mental Health</MenuItem>
+              <MenuItem value="Nutrition">Nutrition</MenuItem>
+              <MenuItem value="Medical Breakthroughs">Medical Breakthroughs</MenuItem>
+              <MenuItem value="Public Health">Public Health</MenuItem>
+
+              {/* Environment Tags */}
+              <MenuItem value="Climate Change">Climate Change</MenuItem>
+              <MenuItem value="Conservation">Conservation</MenuItem>
+              <MenuItem value="Renewable Energy">Renewable Energy</MenuItem>
+              <MenuItem value="Pollution">Pollution</MenuItem>
+              <MenuItem value="Sustainability">Sustainability</MenuItem>
+
+              {/* Travel Tags */}
+              <MenuItem value="Destinations">Destinations</MenuItem>
+              <MenuItem value="Travel Tips">Travel Tips</MenuItem>
+              <MenuItem value="Adventure Travel">Adventure Travel</MenuItem>
+              <MenuItem value="Cultural Experiences">Cultural Experiences</MenuItem>
+              <MenuItem value="Travel News">Travel News</MenuItem>
+
+              {/* Entertainment Tags */}
+              <MenuItem value="Movies">Movies</MenuItem>
+              <MenuItem value="Music">Music</MenuItem>
+              <MenuItem value="Celebrity News">Celebrity News</MenuItem>
+              <MenuItem value="TV Shows">TV Shows</MenuItem>
+              <MenuItem value="Pop Culture">Pop Culture</MenuItem>
+
+              {/* Science Tags */}
+              <MenuItem value="Space Exploration">Space Exploration</MenuItem>
+              <MenuItem value="Technology Innovations">Technology Innovations</MenuItem>
+              <MenuItem value="Biology">Biology</MenuItem>
+              <MenuItem value="Physics">Physics</MenuItem>
+              <MenuItem value="Scientific Discoveries">Scientific Discoveries</MenuItem>
             </Select>
           </div>
 
